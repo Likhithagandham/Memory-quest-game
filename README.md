@@ -37,5 +37,10 @@ Step into the shoes of an adventurer. Whether you are exploring medieval castles
 
 ## 📸 Screenshots
 
+<img width="1919" height="882" alt="image" src="https://github.com/user-attachments/assets/c65d5077-5f40-46ca-b28e-22a68f2a8b62" />
+<img width="1894" height="878" alt="image" src="https://github.com/user-attachments/assets/2b694433-32c1-4ffe-8c98-0007151602b8" />
+
+
+
 ---
-*Created with ❤️ by [Likhitha]*
+*Created with ❤️ by *Likhitha*
