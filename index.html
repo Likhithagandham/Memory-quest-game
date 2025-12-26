@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ancient Memory Quest</title>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div id="start-screen">
+        <h2>Ancient Memory Quest</h2>
+        <form id="player-form">
+            <label for="player-name">Adventurer's Name:</label>
+            <input type="text" id="player-name" required><br>
+
+            <label for="theme-select">Choose a Theme:</label>
+            <select id="theme-select">
+                <option value="medieval">Medieval</option>
+                <option value="space">Space</option>
+                <option value="animals">Animals</option>
+                <option value="gadgets">Gadgets</option>
+            </select><br>
+            <div id="player"></div>
+            <button type="submit">Enter the Quest</button>
+        </form>
+    </div>
+
+    <div id="game-board" style="display:none;">
+        <h3 id="greeting"></h3>
+        <p>Attempts: <span id="attempt-count">0</span></p>
+        <p>Time: <span id="timer">0:00</span></p>
+        <button id="reset-button">Reset Game</button>
+        <div id="cards-container" class="cards-grid"></div>
+
+
+
+    </div>
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <p id="modal-message"></p>
+            <button onclick="closeModal()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>

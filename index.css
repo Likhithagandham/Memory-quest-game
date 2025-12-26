@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+body {
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://res.cloudinary.com/dlrsp0rpm/image/upload/v1741334219/bg_paper_l7pxrq.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #3e2723;
+}
+
+#player {
+    display: none;
+    /* Hidden YouTube player for audio-only */
+}
+
+
+
+#start-screen,
+#game-board {
+    margin-top: 50px;
+    background: rgba(255, 245, 225, 0.95);
+    padding: 20px;
+    border: 3px solid #5c3d2e;
+    display: inline-block;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+h2,
+h3 {
+    font-size: 2rem;
+    color: #5c3d2e;
+    margin-bottom: 15px;
+}
+
+button {
+    background: #8b5e3c;
+    color: #fff;
+    border: 2px solid #5c3d2e;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #6d4427;
+}
+
+input {
+    padding: 8px;
+    border: 2px solid #5c3d2e;
+    border-radius: 5px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 80px);
+    /* 5 columns */
+    grid-template-rows: repeat(4, 80px);
+    /* 4 rows */
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 245, 225, 0.9);
+    border: 2px solid #5c3d2e;
+    border-radius: 5px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    /* Emoji hidden by default */
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s, color 0.3s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.card.flipped {
+    color: #5c3d2e;
+    /* Show emoji when flipped */
+    background: #fdf5e6;
+    transform: rotateY(180deg);
+    backface-visibility: visible;
+    /* Ensure the emoji is displayed */
+}
+
+.card.matched {
+    color: #5c3d2e;
+    background: #fdf5e6;
+    border-color: gold;
+    box-shadow: 0 0 10px gold;
+}
+
+.card.incorrect {
+    animation: shake 0.3s ease forwards;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(90deg);
+    }
+
+    /* Halfway flip */
+}
+
+#reset-button {
+    background: #a52a2a;
+    /* Dark red for emphasis */
+    color: #fff;
+    border: 2px solid #5c3d2e;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+#reset-button:hover {
+    background: #8b0000;
+    /* Darker red on hover */
+}
+
+.quote-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8b5e3c;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px solid #5c3d2e;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-size: 1.2rem;
+    animation: fadeInOut 3s forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) translateX(-50%);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+#player-form label,
+#player-form input,
+#player-form select,
+#player-form button {
+    margin-bottom: 15px;
+    /* Adds spacing between form elements */
+    display: block;
+    /* Ensures each element appears on a new line */
+    width: 100%;
+    /* Aligns inputs and buttons uniformly */
+    box-sizing: border-box;
+    /* Prevents spacing issues */
+}
+
+
+#theme-select {
+    background: #fdf5e6;
+    /* Light parchment tone */
+    border: 3px solid #5c3d2e;
+    /* Scroll-like border */
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.1rem;
+    color: #5c3d2e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Soft shadow for depth */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#theme-select:hover {
+    background: #f0e4d7;
+    /* Slightly darker for hover effect */
+    transform: scale(1.05);
+    /* Gentle zoom effect */
+}
+
+#theme-select:focus {
+    outline: none;
+    border-color: gold;
+    /* Adds a glow effect when focused */
+    box-shadow: 0 0 10px gold;
+}
+
+label[for="theme-select"] {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    width: 80%;
+    max-width: 400px;
+    border: 3px solid #5c3d2e;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fdf5e6;
+    color: #5c3d2e;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'MedievalSharp', cursive;
+}
+
+.modal button {
+    background: #8b5e3c;
+    color: #fff;
+    border: 2px solid #5c3d2e;
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal button:hover {
+    background: #6d4427;
+}
